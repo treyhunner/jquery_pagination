@@ -153,6 +153,8 @@
 		 * @param {int} page_id The new page number
 		 */
 		function paginationClickHandler(evt){
+			if (containers.data('disabled'))
+				return false;
 			var links, 
 				new_current_page = $(evt.target).data('page_id'),
 				continuePropagation = selectPage(new_current_page);
