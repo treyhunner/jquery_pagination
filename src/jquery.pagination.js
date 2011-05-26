@@ -33,7 +33,7 @@
 		 * @returns {Number}
 		 */
 		firstPage:function() {
-			return this.opts.oneIndexed ? 1 : 0;
+			return this.opts.one_indexed ? 1 : 0;
 		},
 		/**
 		 * Calculate the index of the last page
@@ -41,7 +41,7 @@
 		 * @returns {Number}
 		 */
 		lastPage:function() {
-			return this.opts.oneIndexed ? this.numPages() : this.numPages()-1;
+			return this.opts.one_indexed ? this.numPages() : this.numPages()-1;
 		},
 		/**
 		 * Calculate start and end point of pagination links depending on 
@@ -82,7 +82,7 @@
 		createLink:function(page_id, current_page, appendopts){
 			var lnk, lp = this.pc.lastPage(), fp = this.pc.firstPage();
 			page_id = page_id<fp?fp:(page_id<=lp?page_id:lp); // Normalize page id to sane value
-			if (this.opts.oneIndexed) {
+			if (this.opts.one_indexed) {
 				page_id_text = page_id;
 			}
 			else {
@@ -168,7 +168,7 @@
 			prev_show_always:true,
 			next_show_always:true,
 			renderer:"defaultRenderer",
-			oneIndexed: false,
+			one_indexed: false,
 			callback:function(){return false;}
 		},opts||{});
 		
