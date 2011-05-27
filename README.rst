@@ -112,6 +112,10 @@ ellipse_text
 	displayed number interval, this text will be inserted into the gap (inside a
 	span tag). Can be left blank to avoid the additional tag. Default: ``...``
 
+one_indexed
+	Start page numbering at 1 instead of 0 for referencing page numbers
+	internally. For example when using ``__id__`` in the `link_to` option.
+
 
 Triggering pagination with custom events
 ----------------------------------------
