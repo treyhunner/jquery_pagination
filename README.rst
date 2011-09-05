@@ -130,6 +130,18 @@ custom events like this:::
 
 The event handlers check if the new page number is inside the boundaries of the number of pages and ignore the event if it is outside.
 
+
+Disabling pagination
+--------------------
+Pagination can also be disabled by setting 'disabled' to true on the pagination
+container, like this:::
+
+	$("#News-Pagination").data('disabled', true);
+
+To re-enable pagination, set 'disabled' to false, like this:::
+
+	$("#News-Pagination").data('disabled', false);
+
 Version history
 ---------------
 Version 1.0 
