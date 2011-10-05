@@ -133,14 +133,33 @@ The event handlers check if the new page number is inside the boundaries of the 
 
 Disabling pagination
 --------------------
-Pagination can also be disabled by setting 'disabled' to true on the pagination
-container, like this:::
+Pagination can also be temporarily disabled by setting the 'disabled' data
+value to true on the pagination container like this:::
 
 	$("#News-Pagination").data('disabled', true);
 
 To re-enable pagination, set 'disabled' to false, like this:::
 
 	$("#News-Pagination").data('disabled', false);
+
+This feature is useful when pagination events require visual transitions that should not be interrupted until complete. Here is an example callback function that uses a 1 second delay for a transition and disables pagination during the transition::
+
+    function handlePaginationClick(new_page_index, pagination_container) {
+        // This disables pagination and hides the content area
+        $("#Pagination").data('disabled', true);
+        $('#MyContentArea').hide();
+
+        // This selects 20 elements from a content array
+        for(var i=new_page_id;i<20;i++) {
+            $('#MyContentArea').append(content[i]);
+        }
+
+        // This slowly shows the content area and then enables pagination
+        $('#MyContentArea').show(1000, function(){
+            $("#Pagination").data('disabled', false);
+        });
+        return false;
+    }
 
 Version history
 ---------------
